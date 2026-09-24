@@ -64,8 +64,12 @@ Because there's no XMR payment gateway wired in, treat the flow as manual:
    wallet or `monero-wallet-rpc` with `check_tx_key`) for a matching
    transaction of the right amount.
 4. In the Supabase table editor, set that row's `status` to `confirmed`.
-5. Email the buyer at the contact address they left and send their documents
-   through whatever channel you already use for delivery.
+5. Email the buyer at the contact address they left and ask them to reply with
+   their notarised KYC documents (passport and proof of address for every
+   director, shareholder and beneficial owner, each no older than 3 months).
+   The site tells buyers not to send anything before you write to them, and that
+   notarisation is their own responsibility — no online notarisation is offered.
+   Deliver their finished documents through whatever channel you already use.
 
 ## Notes on the content
 
