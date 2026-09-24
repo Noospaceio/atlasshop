@@ -3,11 +3,12 @@
 import { useEffect, useState } from "react";
 import { getSupabase, Order } from "@/lib/supabase";
 import MoneroQr from "@/components/MoneroQr";
+import DocumentsNotice from "@/components/DocumentsNotice";
 
 const STATUS_TEXT: Record<Order["status"], string> = {
   awaiting_payment: "Awaiting payment",
   awaiting_confirmation: "Payment reported — awaiting confirmation",
-  confirmed: "Confirmed — your papers are being prepared",
+  confirmed: "Confirmed — awaiting your notarised documents",
   cancelled: "Cancelled",
 };
 
@@ -129,9 +130,16 @@ export default function OrderPage({ params }: { params: { id: string } }) {
 
       {order.status === "confirmed" && (
         <p className="mt-8 text-sm text-moss leading-relaxed">
-          Payment confirmed. Your documents are being prepared and will reach you at the
-          contact on file.
+          Payment confirmed. We have written to you at the contact on file — reply to that
+          message with your notarised passport and proof of address, quoting your order
+          number. Filing begins once we have them.
         </p>
+      )}
+
+      {order.status !== "cancelled" && (
+        <div className="mt-8">
+          <DocumentsNotice compact />
+        </div>
       )}
 
       <p className="mt-8 text-xs text-umber/70 text-center">
