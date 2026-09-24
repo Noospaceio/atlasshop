@@ -32,7 +32,6 @@ export const TIER_INCLUDES: Record<Tier, string[]> = {
     "Everything in Standard",
     "Up to five bank applications in parallel",
     "Priority support, usually under 30 minutes",
-    "Online notarisation, a $250 value, at no extra cost",
   ],
 };
 
