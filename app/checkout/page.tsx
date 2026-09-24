@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { getHouse, TIER_LABEL, Tier } from "@/lib/data";
 import { getSupabase } from "@/lib/supabase";
 import MoneroQr from "@/components/MoneroQr";
+import DocumentsNotice from "@/components/DocumentsNotice";
 
 const XMR_ADDRESS = process.env.NEXT_PUBLIC_XMR_ADDRESS || "";
 
@@ -92,6 +93,10 @@ function CheckoutForm() {
         <p className="text-sm text-umber mt-1">
           {xmrAmount ? `≈ ${xmrAmount} XMR at today's rate` : "Fetching the current rate…"}
         </p>
+      </div>
+
+      <div className="mt-6">
+        <DocumentsNotice compact />
       </div>
 
       {XMR_ADDRESS && xmrAmount && (
