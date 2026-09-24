@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import DocumentsNotice from "@/components/DocumentsNotice";
 import { getHouse, HOUSES, TIER_INCLUDES, TIER_LABEL, Tier } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -60,6 +61,8 @@ export default function HousePage({ params }: { params: { slug: string } }) {
       <p className="mt-8 text-xs text-umber/70 text-center">
         Annual renewal after the first year: ${house.renewal.toLocaleString()}.
       </p>
+
+      <DocumentsNotice />
 
       <p className="mt-16 text-center">
         <Link href="/" className="text-umber hover:text-rust transition-colors text-sm">
